@@ -193,11 +193,24 @@ var one =
 fetch(one)
   .then(response => response.json())
   .then(onedata => {
-    console.log(onedata);
+    console.log("onedata", onedata);
+    var allhits = onedata.query.searchinfo.totalhits
+
+if (allhits < 1){
+
+alert("Wikipedia didn't find that name. If you're sure it should be listed, please check your spelling and try again.");
+
+}
+
+
+
+    console.log("totalhits", allhits)
     var pagetitle = onedata.query.search[0].title;
     pageid = onedata.query.search[0].pageid;
     console.log(pagetitle);
     console.log(pageid);
+	
+	
 
     // Doing the second fetch, which gets the QID number
 
